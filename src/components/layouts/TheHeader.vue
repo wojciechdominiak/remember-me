@@ -4,10 +4,12 @@
   </header>
 </template>
 
-<script>
-export default {
-  props: ['title'],
-};
+<script setup>
+/* eslint-disable no-unused-vars */
+import { defineProps } from "vue";
+  const props = defineProps( {
+    title: String,
+  });
 </script>
 
 <style scoped>
