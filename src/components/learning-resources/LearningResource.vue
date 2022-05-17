@@ -13,11 +13,16 @@
   </li>
 </template>
 
-<script>
-export default {
-  inject: ['removeResource'],
-  props: ['id','title', 'description', 'link'],
-};
+<script setup>
+import { defineProps, inject } from 'vue';
+/* eslint-disable no-unused-vars */
+const removeResource = inject('removeResource');
+const props = defineProps({
+  id: String,
+  title: String,
+  description: String,
+  link: String,
+});
 </script>
 
 <style scoped>

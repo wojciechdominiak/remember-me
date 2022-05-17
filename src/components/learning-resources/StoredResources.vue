@@ -11,12 +11,11 @@
   </ul>
 </template>
 
-<script>
+<script setup>
 import LearningResource from './LearningResource.vue';
-export default {
-  components: { LearningResource },
-  inject: ['resources'], 
-};
+import { inject } from 'vue';
+
+const resources = inject('resources');
 </script>
 
 <style scoped>

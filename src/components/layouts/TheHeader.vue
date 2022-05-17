@@ -14,7 +14,7 @@ import { defineProps } from "vue";
 
 <style scoped>
 header {
-  height: 5rem;
+  height: 6rem;
   background-color: #5c2590;
   display: flex;
   justify-content: center;
