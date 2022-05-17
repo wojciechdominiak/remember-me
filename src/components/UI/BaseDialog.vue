@@ -12,14 +12,25 @@
       </section>
       <menu>
         <slot name="actions">
-          <BaseButton @click="$emit('close')">Close</BaseButton>
+          <BaseButton @click="emit('close')">Close</BaseButton>
         </slot>
       </menu>
     </dialog>
   </teleport>
 </template>
 
-<script>
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+/* eslint-disable no-unused-vars */
+
+const props = defineProps({
+  title: String,
+});
+const emit = defineEmits(['close']);
+</script>
+
+<!-- <script>
 export default {
   props: {
     title: {
@@ -29,7 +40,7 @@ export default {
   },
   emits: ['close'],
 };
-</script>
+</script> -->
 
 <style scoped>
 div {

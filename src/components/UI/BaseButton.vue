@@ -4,10 +4,13 @@
   </button>
 </template>
 
-<script>
-export default {
-  props: ['mode'],
-};
+<script setup>
+import { defineProps } from 'vue';
+
+/* eslint-disable no-unused-vars */
+const props = defineProps({
+  mode: String,
+});
 </script>
 
 <style scoped>
