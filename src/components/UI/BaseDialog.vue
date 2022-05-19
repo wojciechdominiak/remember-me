@@ -12,7 +12,7 @@
       </section>
       <menu>
         <slot name="actions">
-          <BaseButton @click="emit('close')">Close</BaseButton>
+          <BaseButton @click="$emit('close')">Close</BaseButton>
         </slot>
       </menu>
     </dialog>
@@ -23,24 +23,11 @@
 import { defineProps, defineEmits } from 'vue';
 
 /* eslint-disable no-unused-vars */
-
 const props = defineProps({
   title: String,
 });
 const emit = defineEmits(['close']);
 </script>
-
-<!-- <script>
-export default {
-  props: {
-    title: {
-      type: String,
-      required: false,
-    },
-  },
-  emits: ['close'],
-};
-</script> -->
 
 <style scoped>
 div {

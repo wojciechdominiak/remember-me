@@ -15,6 +15,7 @@
 
 <script setup>
 import { defineProps, inject } from 'vue';
+
 /* eslint-disable no-unused-vars */
 const removeResource = inject('removeResource');
 const props = defineProps({

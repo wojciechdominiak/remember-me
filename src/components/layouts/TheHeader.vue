@@ -5,8 +5,9 @@
 </template>
 
 <script setup>
-/* eslint-disable no-unused-vars */
 import { defineProps } from "vue";
+
+/* eslint-disable no-unused-vars */
   const props = defineProps( {
     title: String,
   });
@@ -16,9 +17,8 @@ import { defineProps } from "vue";
 header {
   height: 6rem;
   background-color: #5c2590;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items:  center;
 }
 
 header h1 {

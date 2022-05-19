@@ -15,7 +15,7 @@
     <form @submit.prevent="submitData">
       <div class="form-control">
         <label for="title">Title</label>
-        <input id="title" name="title" type="text" ref="titleInput" />
+        <input id="title" name="title" type="text" v-model.trim="titleInput" />
       </div>
       <div class="form-control">
         <label for="description">Descirpition</label>
@@ -23,12 +23,12 @@
           id="description"
           name="description"
           rows="3"
-          ref="descInput"
+          v-model.trim="descInput"
         ></textarea>
       </div>
       <div class="form-control">
         <label for="link">Link</label>
-        <input id="link" name="link" type="url" ref="linkInput" />
+        <input id="link" name="link" type="url" v-model.trim="linkInput" />
       </div>
       <div>
         <BaseButton type="submit">Add Resource</BaseButton>
@@ -37,35 +37,29 @@
   </BaseCard>
 </template>
 
-<script>
-export default {
-  inject: ['addResource'],
-  data() {
-    return {
-      inputIsInvalid: false,
-    };
-  },
-  methods: {
-    submitData() {
-      const enteredTitle = this.$refs.titleInput.value;
-      const enteredDescription = this.$refs.descInput.value;
-      const enteredLink = this.$refs.linkInput.value;
+<script setup>
+import { ref, inject } from 'vue';
 
-      if (
-        enteredTitle.trim() === '' ||
-        enteredDescription.trim() === '' ||
-        enteredLink.trim() === ''
-      ) {
-        this.inputIsInvalid = true;
-        return;
-      }
-      this.addResource(enteredTitle, enteredDescription, enteredLink);
-    },
-    confirmError() {
-      this.inputIsInvalid = false;
-    },
-  },
-};
+const addResource = inject('addResource');
+const inputIsInvalid = ref(false);
+const titleInput = ref('');
+const descInput = ref('');
+const linkInput = ref('');
+
+function submitData() {
+  const enteredTitle = titleInput.value;
+  const enteredDescription = descInput.value;
+  const enteredLink = linkInput.value;
+
+  if (enteredTitle === '' || enteredDescription === '' || enteredLink === '') {
+    inputIsInvalid.value = true;
+    return;
+  }
+  addResource(enteredTitle, enteredDescription, enteredLink);
+}
+function confirmError() {
+  inputIsInvalid.value = false;
+}
 </script>
 
 <style scoped>
