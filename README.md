@@ -10,4 +10,4 @@ https://wojciechdominiak.github.io/remember-me/
 
 ## Stack
 
-HTML5, CSS3, JavaScript, Vue.js 3.0 (Vue CLI)
+HTML5, CSS3, JavaScript, Vue.js 3.0 (Vue CLI, Composition API)
